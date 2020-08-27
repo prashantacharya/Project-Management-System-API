@@ -47,8 +47,10 @@ CREATE TABLE IF NOT EXISTS task_user (
 );
 
 CREATE TABLE IF NOT EXISTS comments (
-  id SERIAL PRIMARY KEY,
+  comment_id SERIAL PRIMARY KEY,
   user_id INT NOT NULL,
+  task_id INT NOT NULL,
   text TEXT NOT NULL,
-  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id)
+  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id),
+  CONSTRAINT fk_task_id FOREIGN KEY (task_id) REFERENCES tasks(task_id)
 );

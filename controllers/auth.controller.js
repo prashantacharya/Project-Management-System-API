@@ -24,7 +24,6 @@ export const login = async (req, res, next) => {
 
     // deleting unnecessary fields from response
     delete data[0].password;
-    delete data[0].role_id;
 
     res.json({
       status: 'Success',

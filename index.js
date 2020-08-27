@@ -1,5 +1,6 @@
 import express from 'express';
 import { config } from 'dotenv';
+import cors from 'cors';
 
 import apiRouter from './api';
 import createError from './utils/createError';
@@ -7,10 +8,11 @@ import createError from './utils/createError';
 config();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('App running successfully');
+  res.send({ status: 'Success', message: 'App running successfully' });
 });
 
 app.use('/api/v1', apiRouter);
