@@ -19,8 +19,8 @@ To get the project running on your system, do the following.
 6. Execute the `roles.sql` and `ddl.sql` in the Postgres CLI.
 
 ```psql
-  \i roles.sql
-  \i ddl.sql
+  \i database/queries/roles.sql
+  \i database/queries/ddl.sql
 ```
 
 ### Setting up the backend
