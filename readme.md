@@ -32,7 +32,9 @@ npm i
 yarn
 ```
 
-2. Run the development server
+2. Copy the contents of `.env.example` file on `.env` and make necessary changes.
+
+3. Run the development server
 
 ```sh
 npm start
