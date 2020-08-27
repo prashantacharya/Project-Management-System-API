@@ -36,6 +36,9 @@ export const createUser = async (req, res, next) => {
   const { name, username } = req.body;
   const password = req.hashedPassword;
   const role_id = userRole[req.body.userRole.toLowerCase()];
+  if (role_id == 4) {
+    next(createError(400, 'User role cannot be admin'));
+  }
 
   try {
     const data = await User.forge().save({ name, username, password, role_id });

@@ -5,6 +5,7 @@ import { createToken } from '../utils/jwt';
 import createError from '../utils/createError';
 
 export const login = async (req, res, next) => {
+  console.log(req.body);
   try {
     const data = await knexConnection
       .from('users')
