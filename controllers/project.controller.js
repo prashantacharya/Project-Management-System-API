@@ -132,8 +132,7 @@ export const addUserToProject = async (req, res, next) => {
 
 export const getUsersInProject = async (req, res, next) => {
   try {
-    const users = await knexConnection()
-      .from('project_user')
+    const users = await knexConnection('project_user')
       .where('project_id', req.params.id)
       .innerJoin('users', 'project_user.user_id', 'users.id');
 

@@ -90,11 +90,13 @@ export const tagTask = async (req, res, next) => {
 
 export const getAllTaskInProject = async (req, res, next) => {
   try {
-    const tasks = await new Task().fetchAll({ project_id: req.params.id });
+    const tasks = await knexConnection('tasks')
+      .where('project_id', req.params.id)
+      .innerJoin('users', 'tasks.assigned_to', 'users.id');
 
     res.json({
       status: 'Success',
-      payload: tasks.toJSON(),
+      payload: tasks,
     });
   } catch (error) {
     next(error);
